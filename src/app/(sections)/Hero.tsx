@@ -7,7 +7,7 @@ export default function Hero() {
             id="home"
             className="scroll-mt-16 min-h-[calc(100vh-4rem)] flex items-center"
         >
-            <div className="mx-auto max-w-7xl px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center animate-in fade-in duration-700">
+            <div className="mx-auto max-w-7xl px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center animate-in fade-in duration-700">
 
                 {/* Texto */}
                 <div className="space-y-6 animate-in slide-in-from-bottom-6 duration-700 delay-150">
