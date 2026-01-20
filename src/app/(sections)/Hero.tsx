@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Hero() {
     return (
@@ -41,7 +42,7 @@ export default function Hero() {
                     </div>
 
                     <div className="flex gap-4 pt-4 justify-center md:justify-start">
-                        <Button size="lg" asChild className="border-2">
+                        <Button size="lg" asChild className="border-2 transition-colors hover:bg-primary/50 ">
                             <a href="#contact">
                                 Contacto
                             </a>
@@ -57,7 +58,15 @@ export default function Hero() {
 
                 {/* Visual */}
                 <div className="hidden md:flex justify-center animate-in zoom-in-95 duration-700 delay-300">
-                    <div className="h-64 w-64 rounded-full bg-linear-to-br from-primary/30 to-primary/10" />
+                    <div className="relative h-64 w-64 overflow-hidden rounded-full bg-linear-to-br from-primary/30 to-primary/10">
+                        <Image
+                            src="/foto-selfie.jpg"
+                            alt="Foto de perfil"
+                            fill
+                            className="object-cover"
+                            priority
+                        />
+                    </div>
                 </div>
             </div>
         </section>

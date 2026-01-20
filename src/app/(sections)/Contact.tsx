@@ -18,7 +18,7 @@ export default function Contact(){
 
                 <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
                     <div className="flex flex-col items-center gap-3">
-                        <Button size="lg" asChild>
+                        <Button size="lg" asChild className="transition-colors hover:bg-primary/50 border-2">
                             <a
                                 href="https://mail.google.com/mail/?view=cm&fs=1&to=santiago@email.com"
                                 target="_blank"

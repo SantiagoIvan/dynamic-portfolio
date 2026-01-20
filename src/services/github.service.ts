@@ -1,31 +1,36 @@
+import {parseGithubRepo} from "@/lib/mappers/github";
+import {GithubDto} from "@/lib/types/GithubDto";
+import {RepoDetail} from "@/lib/types/RepoDetail";
+
 const username = "SantiagoIvan"
 
-export async function getGithubRepos() {
-    const res = await fetch(
-        `https://api.github.com/users/${username}/repos`,
-        {
-            headers: {
-                Accept: "application/vnd.github+json",
-            },
-            next: {
-                revalidate: 3600, // 1 hora
-            },
+export async function getGithubRepos(): Promise<RepoDetail[]> {
+    try{
+        const res = await fetch(
+            `https://api.github.com/users/${username}/repos`,
+            {
+                headers: {
+                    Accept: "application/vnd.github+json",
+                },
+                next: {
+                    revalidate: 3600, // 1 hora
+                },
+            }
+        );
+        if (!res.ok) {
+            throw new Error("Error fetching GitHub repos");
         }
-    );
-    if (!res.ok) {
-        throw new Error("Error fetching GitHub repos");
+
+        const data = await res.json();
+        // Por cada repo obtener lista de lenguajes: { "language": number of lines, ... }
+        return await Promise.all(data.map(async (repo: GithubDto) => {
+            const languages = await getGithubRepoLanguages(repo.name);
+            return parseGithubRepo(repo, languages)
+        }))
+    }catch(error){
+        console.error(error);
+        return []
     }
-
-    const data = await res.json();
-    // Por cada repo obtener lista de lenguajes: { "language": number of lines, ... }
-    const updatedRepos = data.map(async (repo: any) => {
-        const languagesResponse = await getGithubRepoLanguages(repo.name);
-        const languages = await languagesResponse.json()
-        repo.languages = languages;
-        return repo
-    })
-
-    return updatedRepos;
 }
 
 async function getGithubRepoLanguages(repoName: string) {

@@ -1,7 +1,12 @@
-export default function Projects(){
+import {getGithubRepos} from "@/services/github.service";
+
+export default async function Projects(){
+    const proyectos = await getGithubRepos();
+
+    console.log("Proyectos", proyectos);
     return (
-        <div>
-            <h1>Projects</h1>
-        </div>
-    )
+        <pre className="text-xs">
+    {JSON.stringify(proyectos, null, 2)}
+  </pre>
+    );
 }
