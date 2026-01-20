@@ -1,5 +1,6 @@
 import {ExperienceItem} from "@/components/ExperienceItem";
 import {ConcreteExperienceItem} from "@/lib/types/experienceItem";
+import { experiences } from "@/data/experiences";
 
 export default function Experience(){
     return (
@@ -9,24 +10,17 @@ export default function Experience(){
 
                 <div className="space-y-12">
                     {/* ExperienceItem */}
-                    <ExperienceItem
-                        role="Frontend Developer"
-                        company="Proyecto personal"
-                        startDate="Ene 2023"
-                        description="Desarrollo de aplicaciones web modernas con foco en UX, performance y escalabilidad."
-                        achievements={[
-                            "Arquitectura con Next.js App Router",
-                            "Integración de WebSockets en tiempo real",
-                            "Sistema de componentes reutilizables con Shadcn",
-                        ]}
-                        technologies={[
-                            "Next.js",
-                            "TypeScript",
-                            "Tailwind",
-                            "Shadcn",
-                            "WebSockets",
-                        ]}
-                    />
+                    {experiences.map((experience: ConcreteExperienceItem, index: number)=> (
+                        <ExperienceItem
+                            key={index}
+                            role={experience.role}
+                            company={experience.company}
+                            startDate={experience.startDate}
+                            description={experience.description}
+                            achievements={experience.achievements}
+                            technologies={experience.technologies}
+                        />
+                    ))}
                 </div>
             </div>
         </section>
