@@ -9,11 +9,13 @@ export const experiences: ConcreteExperienceItem[] = [
         description: "Desarrollo de juegos para activaciones de marketing, creando mometos divertidos y ayudando a conectar a las empresas con las personas.",
         achievements: [
             "Desarrollo end-to-end de aplicaciones",
+            "Venta de servicio de tablets con videojuegos instalados y personalizados para la empresa"
         ],
         skills: [
             "Frontend",
             "Backend",
-            "Relevamiento"
+            "Relevamiento",
+            "Soft skills"
         ],
     },
     {
