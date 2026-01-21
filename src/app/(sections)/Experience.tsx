@@ -16,9 +16,10 @@ export default function Experience(){
                             role={experience.role}
                             company={experience.company}
                             startDate={experience.startDate}
+                            endDate={experience.endDate}
                             description={experience.description}
                             achievements={experience.achievements}
-                            technologies={experience.technologies}
+                            skills={experience.skills}
                         />
                     ))}
                 </div>

@@ -24,6 +24,10 @@ export default function Projects({ projects }: Props) {
         if (!selectedLanguage || selectedLanguage === "all") return projects;
         return projects.filter(p =>
             p.languages[selectedLanguage]
+        ).sort(
+            (a: RepoDetail, b: RepoDetail) =>
+                new Date(b.updatedAt).getTime() -
+                new Date(a.updatedAt).getTime()
         );
     }, [projects, selectedLanguage]);
 

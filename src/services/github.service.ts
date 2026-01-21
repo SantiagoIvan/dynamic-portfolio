@@ -7,7 +7,7 @@ const username = "SantiagoIvan"
 export async function getGithubRepos(): Promise<RepoDetail[]> {
     try{
         const res = await fetch(
-            `https://api.github.com/users/${username}/repos`,
+            `https://api.github.com/users/${username}/repos?per_page=100&page=1`,
             {
                 headers: {
                     Accept: "application/vnd.github+json",
@@ -22,13 +22,14 @@ export async function getGithubRepos(): Promise<RepoDetail[]> {
         }
 
         const data = await res.json();
+
         // Por cada repo obtener lista de lenguajes: { "language": number of lines, ... }
         return await Promise.all(data.map(async (repo: GithubDto) => {
             const languages = await getGithubRepoLanguages(repo.name);
             return parseGithubRepo(repo, languages)
         }))
     }catch(error){
-        console.error(error);
+        console.log(error);
         return []
     }
 }

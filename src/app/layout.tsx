@@ -27,10 +27,11 @@ export default function RootLayout({
       <html lang="es" className="dark">
           <body
               className={`${geistSans.variable} ${geistMono.variable} antialiased
-                bg-gradient-to-b
-                from-black
-                via-black
-                to-emerald-950
+              min-h-screen
+              bg-gradient-to-b
+              from-black
+              via-emerald-950
+              to-emerald-900/20
               `}
           >
             <Header/>

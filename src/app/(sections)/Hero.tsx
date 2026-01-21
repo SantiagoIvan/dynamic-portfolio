@@ -49,7 +49,7 @@ export default function Hero() {
                         </Button>
 
                         <Button variant="outline" size="lg" asChild>
-                            <a href="#projects">
+                            <a href="https://github.com/SantiagoIvan" target="_blank">
                                 Ver proyectos
                             </a>
                         </Button>

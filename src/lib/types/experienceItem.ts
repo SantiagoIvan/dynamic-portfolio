@@ -1,9 +1,9 @@
 export interface ConcreteExperienceItem {
     role: string;
-    startDate: string;
-    endDate?: string;
+    startDate: Date;
+    endDate?: Date;
     company?: string;
     description: string;
     achievements: string[];
-    technologies: string[];
+    skills: string[];
 }
