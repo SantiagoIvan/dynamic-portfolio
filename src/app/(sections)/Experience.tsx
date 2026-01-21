@@ -1,8 +1,9 @@
 import {ExperienceItem} from "@/components/ExperienceItem";
 import {ConcreteExperienceItem} from "@/lib/types/experienceItem";
-import { experiences } from "@/data/experiences";
+import {getExperieces} from "@/services/experiences.service"
 
-export default function Experience(){
+export default async function Experience(){
+    const experiences = await getExperieces()
     return (
         <section id="experience" className="py-24 ">
             <div className="container max-w-4xl mx-auto">
@@ -10,7 +11,9 @@ export default function Experience(){
 
                 <div className="space-y-12">
                     {/* ExperienceItem */}
-                    {experiences.map((experience: ConcreteExperienceItem, index: number)=> (
+                    {experiences
+                        .sort((a, b) => b.startDate.getTime() - a.startDate.getTime())
+                        .map((experience: ConcreteExperienceItem, index: number)=> (
                         <ExperienceItem
                             key={index}
                             role={experience.role}

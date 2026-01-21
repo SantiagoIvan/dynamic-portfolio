@@ -1,0 +1,27 @@
+[
+  {
+    "role": "Desarrollador",
+    "company": "Autonomo",
+    "startDate": "2026-01-01",
+    "description": "Desarrollo de juegos para activaciones de marketing, creando momentos divertidos y ayudando a conectar a las empresas con las personas.",
+    "achievements": [
+      "Desarrollo end-to-end de aplicaciones",
+      "Venta de servicio de tablets con videojuegos instalados y personalizados para la empresa"
+    ],
+    "skills": ["Frontend", "Backend", "Relevamiento", "Soft skills"]
+  },
+  {
+    "role": "Analista Funcional",
+    "company": "Tenaris",
+    "startDate": "2023-11-01",
+    "endDate": "2025-12-01",
+    "description": "Relevamiento de procesos y nuevos requerimientos para sistemas de portería y clasificación de chatarra para la planta industrial Siderca. Diseño de nuevas funcionalidades. Migración de sistemas de México a Argentina, mergeando con funcionalidades existentes. Soporte en aplicaciones SAP.",
+    "achievements": [
+      "Relevamiento de procesos en México y Argentina",
+      "Implementación de nuevo sistema de Portería",
+      "Implementación de sistema de clasificación de chatarra",
+      "Resolución de incidencias"
+    ],
+    "skills": ["Análisis funcional", "Modelado de datos", "Relevamiento"]
+  }
+]
