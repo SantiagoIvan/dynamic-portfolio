@@ -3,12 +3,15 @@ import {GithubDto} from "@/lib/types/GithubDto";
 import {RepoDetail} from "@/lib/types/RepoDetail";
 
 const username = "SantiagoIvan"
+const FILTER_KEYWORDS = ["test", "example", "practice"];
+const FILTER_LANGUAGES = ["hlsl", "makefile", "Plpgsql", "shaderlab", "procfile"];
 
 export async function getGithubRepos(): Promise<RepoDetail[]> {
     try{
         const res = await fetch(
             `https://api.github.com/users/${username}/repos?per_page=100&page=1`,
             {
+                cache: "no-cache",
                 headers: {
                     Accept: "application/vnd.github+json",
                 },
@@ -23,8 +26,14 @@ export async function getGithubRepos(): Promise<RepoDetail[]> {
 
         const data = await res.json();
 
+        const filteredRepos = data.filter((repo: GithubDto) =>
+            !FILTER_KEYWORDS.some(keyword =>
+                repo.name.toLowerCase().includes(keyword)
+            ) && repo.description
+        );
+
         // Por cada repo obtener lista de lenguajes: { "language": number of lines, ... }
-        return await Promise.all(data.map(async (repo: GithubDto) => {
+        return await Promise.all(filteredRepos.map(async (repo: GithubDto) => {
             const languages = await getGithubRepoLanguages(repo.name);
             return parseGithubRepo(repo, languages)
         }))
@@ -34,7 +43,7 @@ export async function getGithubRepos(): Promise<RepoDetail[]> {
     }
 }
 
-async function getGithubRepoLanguages(repoName: string) {
+async function getGithubRepoLanguages(repoName: string): Promise<Record<string,number>> {
     const res = await fetch(
         `https://api.github.com/repos/${username}/${repoName}/languages`,
         {
@@ -51,5 +60,17 @@ async function getGithubRepoLanguages(repoName: string) {
         throw new Error("Error fetching GitHub repos");
     }
 
-    return res.json();
+    const data = await res.json();
+
+    return Object.entries(data).reduce<Record<string, number>>(
+        (acc, [language, lines]) => {
+            if (!FILTER_LANGUAGES.some(lang => lang === language.toLowerCase())) {
+                if (typeof lines === "number") {
+                    acc[language] = lines;
+                }
+            }
+            return acc;
+        },
+        {}
+    );
 }
