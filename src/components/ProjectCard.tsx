@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { RepoDetail } from "@/lib/types/RepoDetail";
+import { Star } from "lucide-react";
 
 interface Props {
     project: RepoDetail;
@@ -8,8 +9,30 @@ interface Props {
 
 export function ProjectCard({ project }: Props) {
     return (
-        <Card>
+        <Card className="relative">
             <CardHeader>
+                {project.stars > 0 && (
+                    <div
+                        className="
+                        absolute
+                        right-3
+                        top-3
+                        flex
+                        items-center
+                        gap-1
+                        rounded-md
+                        bg-background
+                        px-2
+                        py-1
+                        text-xs
+                        text-yellow-500
+                        backdrop-blur
+                      "
+                        title={`${project.stars} estrellas`}
+                    >
+                        <Star className="h-4 w-4 fill-yellow-500" />
+                    </div>
+                )}
                 <CardTitle className="flex justify-between items-center">
                     {project.name}
                     {project.private && (

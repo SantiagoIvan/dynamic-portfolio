@@ -13,6 +13,7 @@ export function parseGithubRepo(
         description: repo.description,
         createdAt: repo.created_at,
         updatedAt: repo.updated_at,
+        stars: repo.stargazers_count,
         languages,
     };
 }

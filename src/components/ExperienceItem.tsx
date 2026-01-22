@@ -12,7 +12,7 @@ export function ExperienceItem({
                                    skills,
                                }: ConcreteExperienceItem) {
     return (
-        <Card>
+        <Card className="group transition-all duration-200 hover:shadow-lg">
             <CardContent className="p-6">
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
                     {/* Columna izquierda */}

@@ -6,5 +6,6 @@ export interface RepoDetail {
     description: string | null;
     createdAt: string;
     updatedAt: string;
+    stars: number;
     languages: Record<string, number>;
 }

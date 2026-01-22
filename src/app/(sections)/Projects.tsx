@@ -10,7 +10,7 @@ interface Props {
 }
 
 export default function Projects({ projects }: Props) {
-    const [selectedLanguage, setSelectedLanguage] = useState<string>("all");
+    const [selectedLanguage, setSelectedLanguage] = useState<string>("starred");
 
     const languages = useMemo(() => {
         const set = new Set<string>();
@@ -22,6 +22,15 @@ export default function Projects({ projects }: Props) {
 
     const filteredProjects = useMemo(() => {
         if (!selectedLanguage || selectedLanguage === "all") return projects;
+        if(selectedLanguage === "starred")
+            return projects
+                .filter((proj: RepoDetail) => proj.stars > 0)
+                .sort(
+                    (a: RepoDetail, b: RepoDetail) =>
+                        new Date(b.createdAt).getTime() -
+                        new Date(a.createdAt).getTime()
+                    );
+
         return projects.filter(p =>
             p.languages[selectedLanguage]
         ).sort(

@@ -1,6 +1,7 @@
 import {ExperienceItem} from "@/components/ExperienceItem";
 import {ConcreteExperienceItem} from "@/lib/types/experienceItem";
 import {getExperieces} from "@/services/experiences.service"
+import {AnimatedCard} from "@/components/AnimatedCard";
 
 export default async function Experience(){
     const experiences = await getExperieces()
@@ -14,17 +15,19 @@ export default async function Experience(){
                     {experiences
                         .sort((a, b) => b.startDate.getTime() - a.startDate.getTime())
                         .map((experience: ConcreteExperienceItem, index: number)=> (
-                        <ExperienceItem
-                            key={index}
-                            role={experience.role}
-                            company={experience.company}
-                            startDate={experience.startDate}
-                            endDate={experience.endDate}
-                            description={experience.description}
-                            achievements={experience.achievements}
-                            skills={experience.skills}
-                        />
-                    ))}
+                            <AnimatedCard key={index}>
+                                <ExperienceItem
+                                    role={experience.role}
+                                    company={experience.company}
+                                    startDate={experience.startDate}
+                                    endDate={experience.endDate}
+                                    description={experience.description}
+                                    achievements={experience.achievements}
+                                    skills={experience.skills}
+                                />
+                            </AnimatedCard>
+                        ))
+                    }
                 </div>
             </div>
         </section>

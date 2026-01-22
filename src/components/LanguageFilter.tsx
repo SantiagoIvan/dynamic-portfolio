@@ -15,7 +15,7 @@ export function LanguageFilter({ languages, selected, onSelect }: Props) {
 
             <SelectContent>
                 <SelectItem value="all">Todos</SelectItem>
-
+                <SelectItem value="starred">Destacados</SelectItem>
                 {languages.map((language) => (
                     <SelectItem key={language} value={language}>
                         {language}

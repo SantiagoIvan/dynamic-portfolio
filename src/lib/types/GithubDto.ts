@@ -6,4 +6,5 @@ export interface GithubDto {
     description: string | null;
     created_at: string;
     updated_at: string;
+    stargazers_count: number;
 }

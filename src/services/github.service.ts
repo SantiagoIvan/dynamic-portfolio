@@ -4,7 +4,7 @@ import {RepoDetail} from "@/lib/types/RepoDetail";
 
 const username = "SantiagoIvan"
 const FILTER_KEYWORDS = ["test", "example", "practice"];
-const FILTER_LANGUAGES = ["hlsl", "makefile", "Plpgsql", "shaderlab", "procfile"];
+const FILTER_LANGUAGES = ["hlsl", "makefile", "plpgsql", "shaderlab", "procfile"];
 
 export async function getGithubRepos(): Promise<RepoDetail[]> {
     try{
@@ -24,7 +24,7 @@ export async function getGithubRepos(): Promise<RepoDetail[]> {
             throw new Error("Error fetching GitHub repos");
         }
 
-        const data = await res.json();
+        const data: GithubDto[] = await res.json();
 
         const filteredRepos = data.filter((repo: GithubDto) =>
             !FILTER_KEYWORDS.some(keyword =>
@@ -64,7 +64,7 @@ async function getGithubRepoLanguages(repoName: string): Promise<Record<string,n
 
     return Object.entries(data).reduce<Record<string, number>>(
         (acc, [language, lines]) => {
-            if (!FILTER_LANGUAGES.some(lang => lang === language.toLowerCase())) {
+            if (!FILTER_LANGUAGES.some(lang => lang.toLowerCase() === language.toLowerCase())) {
                 if (typeof lines === "number") {
                     acc[language] = lines;
                 }
