@@ -6,7 +6,7 @@ export default async function Experience(){
     const experiences = await getExperieces()
     return (
         <section id="experience" className="py-24 ">
-            <div className="container max-w-4xl mx-auto">
+            <div className="container lg:max-w-[70vw] mx-auto">
                 <h2 className="text-3xl font-bold mb-12 text-center">Experiencia</h2>
 
                 <div className="space-y-12">
