@@ -5,7 +5,7 @@ export default function Hero() {
     return (
         <section
             id="home"
-            className="scroll-mt-16 min-h-[calc(100vh-4rem)] flex items-center"
+            className="scroll-mt-16 min-h-[calc(80vh-4rem)] flex items-center"
         >
             <div className="mx-auto max-w-7xl px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center animate-in fade-in duration-700">
 

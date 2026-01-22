@@ -22,7 +22,7 @@ export function Header() {
             <Container className="flex h-16 items-center justify-between">
                 {/* Logo */}
                 <Link href="/">
-                    <span className="font-bold text-lg">SF</span>
+                    <span className="font-bold text-lg">Home</span>
                 </Link>
 
                 {/* Desktop nav */}

@@ -28,7 +28,7 @@ export default function RootLayout({
           <body
               className={`${geistSans.variable} ${geistMono.variable} antialiased
               min-h-screen
-              bg-gradient-to-b
+              bg-linear-to-b
               from-black
               via-emerald-950
               to-emerald-900/20
