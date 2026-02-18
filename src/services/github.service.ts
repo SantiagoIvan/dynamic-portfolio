@@ -4,7 +4,7 @@ import {RepoDetail} from "@/lib/types/RepoDetail";
 
 const username = "SantiagoIvan"
 const FILTER_KEYWORDS = ["test", "example", "practice"];
-const FILTER_LANGUAGES = ["hlsl", "makefile", "plpgsql", "shaderlab", "procfile"];
+const FILTER_LANGUAGES = ["hlsl", "makefile", "plpgsql", "shaderlab", "procfile", "Cmake", "Dockerfile", "Objective-C", "Swift"];
 
 export async function getGithubRepos(): Promise<RepoDetail[]> {
     try{
