@@ -24,8 +24,9 @@ export default function Hero() {
                     </h2>
 
                     <p className="max-w-xl text-muted-foreground">
-                        Diseño y Desarrollo aplicaciones web modernas, enfocadas en performance,
-                        escalabilidad y una excelente experiencia de usuario.
+                        Soy desarrollador Full Stack y game developer. Mi experiencia
+                        en Analisis funcional me da un perfil orientado al negocio y a la satisfaccion del usuario.
+                        Ademas, soy musico y soy fan #1 de los sorrentinos!
                     </p>
 
                     <div className="flex flex-wrap gap-3">
