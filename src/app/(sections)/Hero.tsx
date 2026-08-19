@@ -26,7 +26,7 @@ export default function Hero() {
                     <p className="max-w-xl text-muted-foreground">
                         Soy desarrollador Full Stack y game developer. Mi experiencia
                         en Analisis funcional me da un perfil orientado al negocio y a la satisfaccion del usuario.
-                        Ademas, soy musico y soy fan #1 de los sorrentinos!
+                        Ademas, en mis tiempos libres soy musico y amante de la calistenia!
                     </p>
 
                     <div className="flex flex-wrap gap-3">

@@ -4,7 +4,7 @@ import {RepoDetail} from "@/lib/types/RepoDetail";
 
 const username = "SantiagoIvan"
 const FILTER_KEYWORDS = ["test", "example", "practice"];
-const FILTER_LANGUAGES = ["hlsl", "makefile", "plpgsql", "shaderlab", "procfile", "Cmake", "Dockerfile", "Objective-C", "Swift"];
+const WHITE_LIST_LANGUAGES = ["C", "C++", "C#", "Kotlin", "Dockerfile", "Python", "Java", "Javascript", "Solidity", "SQL", "T-SQL", "TSQL", "Jupyter Notebook", "Typescript"];
 
 export async function getGithubRepos(): Promise<RepoDetail[]> {
     try{
@@ -64,7 +64,7 @@ async function getGithubRepoLanguages(repoName: string): Promise<Record<string,n
 
     return Object.entries(data).reduce<Record<string, number>>(
         (acc, [language, lines]) => {
-            if (!FILTER_LANGUAGES.some(lang => lang.toLowerCase() === language.toLowerCase())) {
+            if (WHITE_LIST_LANGUAGES.some(lang => lang.toLowerCase() === language.toLowerCase())) {
                 if (typeof lines === "number") {
                     acc[language] = lines;
                 }
