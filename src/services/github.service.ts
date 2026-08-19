@@ -29,7 +29,7 @@ export async function getGithubRepos(): Promise<RepoDetail[]> {
         const filteredRepos = data.filter((repo: GithubDto) =>
             !FILTER_KEYWORDS.some(keyword =>
                 repo.name.toLowerCase().includes(keyword)
-            )
+            ) && repo.description
         );
 
         // Por cada repo obtener lista de lenguajes: { "language": number of lines, ... }
