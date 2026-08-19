@@ -8,7 +8,7 @@ import {
     SheetContent, SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu, FolderGit2, Briefcase, Mail } from "lucide-react";
+import { Menu, FolderGit2, Briefcase, User, Mail } from "lucide-react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { T } from "@/lib/i18n/LanguageProvider";
 import { LanguageToggle } from "@/components/layout/LanguageToggle";
@@ -16,6 +16,7 @@ import { LanguageToggle } from "@/components/layout/LanguageToggle";
 const navItems = [
     { href: "#projects", key: "nav.projects", icon: FolderGit2 },
     { href: "#experience", key: "nav.experience", icon: Briefcase },
+    { href: "#about", key: "nav.about", icon: User },
     { href: "#contact", key: "nav.contact", icon: Mail },
 ];
 

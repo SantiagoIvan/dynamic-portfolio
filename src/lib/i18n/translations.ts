@@ -5,6 +5,7 @@ export const translations = {
         nav: {
             projects: "Proyectos",
             experience: "Experiencia",
+            about: "Sobre mí",
             contact: "Contacto",
         },
         hero: {
@@ -28,6 +29,22 @@ export const translations = {
             empty: "No hay proyectos para este lenguaje.",
             viewOnGithub: "Ver en GitHub",
         },
+        about: {
+            title: "Sobre mí",
+            intro: "Más allá del código: toco varios instrumentos y entreno calistenia hace años. Son disciplinas que, como programar, se construyen a base de práctica constante y de encontrarle la vuelta a algo hasta que sale bien — esa mezcla de análisis, creatividad y disciplina es la que llevo a cada proyecto.",
+            dev: {
+                title: "Desarrollo",
+                text: "Full Stack developer con perfil de Analista Funcional: relevo, diseño y programo soluciones end-to-end, siempre pensando en el negocio y en la experiencia de quien las usa.",
+            },
+            music: {
+                title: "Música",
+                text: "Soy multiinstrumentista (piano y guitarra, entre otros) y di clases particulares durante varios años. Tocar me enseñó a practicar con paciencia y a comunicar ideas de forma simple.",
+            },
+            calisthenics: {
+                title: "Calistenia",
+                text: "Entreno calistenia como hábito de constancia y superación personal — la misma lógica de fijarme objetivos, medir progreso y no bajar los brazos que aplico cuando encaro un problema técnico difícil.",
+            },
+        },
         contact: {
             title: "¿Hablamos?",
             body: "Si tenés un proyecto, una idea o simplemente querés contactarme, escribime sin compromiso.",
@@ -40,6 +57,7 @@ export const translations = {
         nav: {
             projects: "Projects",
             experience: "Experience",
+            about: "About me",
             contact: "Contact",
         },
         hero: {
@@ -62,6 +80,22 @@ export const translations = {
             starred: "Starred",
             empty: "No projects for this language.",
             viewOnGithub: "View on GitHub",
+        },
+        about: {
+            title: "About me",
+            intro: "Beyond the code: I play several instruments and I've been training calisthenics for years. Like programming, both are built through constant practice and figuring things out until they click — that mix of analysis, creativity and discipline is what I bring to every project.",
+            dev: {
+                title: "Development",
+                text: "Full Stack developer with a Functional Analyst background: I gather requirements, design and build end-to-end solutions, always keeping the business and the end user in mind.",
+            },
+            music: {
+                title: "Music",
+                text: "I'm a multi-instrumentalist (piano and guitar, among others) and taught private lessons for several years. Playing taught me to practice with patience and to communicate ideas simply.",
+            },
+            calisthenics: {
+                title: "Calisthenics",
+                text: "I train calisthenics as a habit of consistency and self-improvement — the same mindset of setting goals, tracking progress and not giving up that I bring to tough technical problems.",
+            },
         },
         contact: {
             title: "Let's talk?",
