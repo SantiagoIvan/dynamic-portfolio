@@ -1,7 +1,12 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 export default function Hero() {
+    const { t } = useLanguage();
+
     return (
         <section
             id="home"
@@ -12,7 +17,7 @@ export default function Hero() {
                 {/* Texto */}
                 <div className="space-y-6 animate-in slide-in-from-bottom-6 duration-700 delay-150">
                     <p className="text-sm text-muted-foreground">
-                        Bienvenido a mi perfil !
+                        {t("hero.welcome")}
                     </p>
 
                     <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
@@ -20,13 +25,11 @@ export default function Hero() {
                     </h1>
 
                     <h2 className="text-xl md:text-2xl text-primary font-semibold">
-                        Full Stack Developer / Analista funcional
+                        {t("hero.role")}
                     </h2>
 
                     <p className="max-w-xl text-muted-foreground">
-                        Soy desarrollador Full Stack y game developer. Mi experiencia
-                        en Analisis funcional me da un perfil orientado al negocio y a la satisfaccion del usuario.
-                        Ademas, en mis tiempos libres soy musico y amante de la calistenia!
+                        {t("hero.bio")}
                     </p>
 
                     <div className="flex flex-wrap gap-3">
@@ -42,16 +45,22 @@ export default function Hero() {
                         )}
                     </div>
 
-                    <div className="flex gap-4 pt-4 justify-center md:justify-start">
+                    <div className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
                         <Button size="lg" asChild className="border-2 transition-colors hover:bg-primary/50 ">
                             <a href="#contact">
-                                Contacto
+                                {t("hero.contactCta")}
+                            </a>
+                        </Button>
+
+                        <Button variant="outline" size="lg" asChild>
+                            <a href="/cv-santiago-feijoo.pdf" download>
+                                {t("hero.cvCta")}
                             </a>
                         </Button>
 
                         <Button variant="outline" size="lg" asChild>
                             <a href="https://github.com/SantiagoIvan" target="_blank">
-                                Ver proyectos
+                                {t("hero.projectsCta")}
                             </a>
                         </Button>
                     </div>

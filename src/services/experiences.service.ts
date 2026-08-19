@@ -11,9 +11,9 @@ export async function getExperieces(): Promise<ConcreteExperienceItem[]> {
         const data = JSON.parse(file);
         const updated: ConcreteExperienceItem[] = data.map((item: ExperienceJsonFile) => {
             return {
-                ...item,
                 startDate: new Date(item.startDate),
                 endDate: item.endDate? new Date(item.endDate) : undefined,
+                translations: item.translations,
             }
         })
         return updated

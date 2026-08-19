@@ -4,16 +4,19 @@ import { Container } from "./Container";
 import { Button } from "@/components/ui/button";
 import {
     Sheet,
+    SheetClose,
     SheetContent, SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { T } from "@/lib/i18n/LanguageProvider";
+import { LanguageToggle } from "@/components/layout/LanguageToggle";
 
 const navItems = [
-    { href: "#projects", label: "Proyectos" },
-    { href: "#experience", label: "Experiencia" },
-    { href: "#contact", label: "Contacto" },
+    { href: "#projects", key: "nav.projects" },
+    { href: "#experience", key: "nav.experience" },
+    { href: "#contact", key: "nav.contact" },
 ];
 
 export function Header() {
@@ -33,40 +36,45 @@ export function Header() {
                             href={item.href}
                             className="text-muted-foreground hover:text-foreground transition-colors"
                         >
-                            {item.label}
+                            <T k={item.key} />
                         </Link>
                     ))}
+                    <LanguageToggle />
                 </nav>
 
                 {/* Mobile nav */}
-                <Sheet>
-                    <SheetTrigger asChild>
-                        <Button
-                            variant="ghost"
-                            size="icon"
-                            className="md:hidden"
-                        >
-                            <Menu className="h-5 w-5" />
-                        </Button>
-                    </SheetTrigger>
+                <div className="flex items-center gap-3 md:hidden">
+                    <LanguageToggle />
 
-                    <SheetContent side="right" className="w-64">
-                        <VisuallyHidden>
-                            <SheetTitle>Menú de navegación</SheetTitle>
-                        </VisuallyHidden>
-                        <nav className="flex flex-col gap-4 mt-8">
-                            {navItems.map((item) => (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    className="text-sm font-medium"
-                                >
-                                    {item.label}
-                                </Link>
-                            ))}
-                        </nav>
-                    </SheetContent>
-                </Sheet>
+                    <Sheet>
+                        <SheetTrigger asChild>
+                            <Button
+                                variant="ghost"
+                                size="icon"
+                            >
+                                <Menu className="h-5 w-5" />
+                            </Button>
+                        </SheetTrigger>
+
+                        <SheetContent side="right" className="w-64">
+                            <VisuallyHidden>
+                                <SheetTitle>Menú de navegación</SheetTitle>
+                            </VisuallyHidden>
+                            <nav className="flex flex-col gap-4 mt-8">
+                                {navItems.map((item) => (
+                                    <SheetClose asChild key={item.href}>
+                                        <Link
+                                            href={item.href}
+                                            className="text-sm font-medium"
+                                        >
+                                            <T k={item.key} />
+                                        </Link>
+                                    </SheetClose>
+                                ))}
+                            </nav>
+                        </SheetContent>
+                    </Sheet>
+                </div>
             </Container>
         </header>
     );

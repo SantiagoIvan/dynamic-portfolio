@@ -1,13 +1,24 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { RepoDetail } from "@/lib/types/RepoDetail";
 import { Star } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 interface Props {
     project: RepoDetail;
+    viewOnGithubLabel?: string;
 }
 
-export function ProjectCard({ project }: Props) {
+export function ProjectCard({ project, viewOnGithubLabel = "Ver en GitHub" }: Props) {
+    const { locale } = useLanguage();
+
+    const description =
+        locale === "en"
+            ? project.descriptionEn ?? project.description
+            : project.description;
+
     return (
         <Card className="relative">
             <CardHeader>
@@ -42,9 +53,9 @@ export function ProjectCard({ project }: Props) {
             </CardHeader>
 
             <CardContent className="space-y-3">
-                {project.description && (
+                {description && (
                     <p className="text-sm text-muted-foreground">
-                        {project.description}
+                        {description}
                     </p>
                 )}
 
@@ -62,7 +73,7 @@ export function ProjectCard({ project }: Props) {
                     rel="noreferrer"
                     className="text-sm text-primary underline"
                 >
-                    Ver en GitHub
+                    {viewOnGithubLabel}
                 </a>
             </CardContent>
         </Card>

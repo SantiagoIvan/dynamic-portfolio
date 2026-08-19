@@ -3,7 +3,8 @@ import {RepoDetail} from "@/lib/types/RepoDetail";
 
 export function parseGithubRepo(
     repo: GithubDto,
-    languages: Record<string, number>
+    languages: Record<string, number>,
+    descriptionEn: string | null
 ): RepoDetail {
     return {
         id: repo.id,
@@ -11,6 +12,7 @@ export function parseGithubRepo(
         private: repo.private,
         htmlUrl: repo.html_url,
         description: repo.description,
+        descriptionEn,
         createdAt: repo.created_at,
         updatedAt: repo.updated_at,
         stars: repo.stargazers_count,

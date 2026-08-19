@@ -4,6 +4,7 @@ export interface RepoDetail {
     private: boolean;
     htmlUrl: string;
     description: string | null;
+    descriptionEn: string | null;
     createdAt: string;
     updatedAt: string;
     stars: number;

@@ -2,8 +2,11 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowUp } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 export function BackToTopButton() {
+    const { t } = useLanguage();
+
     const handleClick = () => {
         window.scrollTo({
             top: 0,
@@ -19,8 +22,8 @@ export function BackToTopButton() {
                 onClick={handleClick}
                 className="gap-2 text-lg"
             >
-                <ArrowUp className="h-15 w-15" />
-                Ir al cielo
+                <ArrowUp className="h-5 w-5" />
+                {t("backToTop")}
             </Button>
         </div>
     );

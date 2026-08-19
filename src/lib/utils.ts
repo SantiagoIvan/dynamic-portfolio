@@ -9,7 +9,7 @@ export function formatMonthYear(
     date: Date,
     locale: string = "es-AR"
 ): string {
-  const formatted = new Intl.DateTimeFormat("es-AR", {
+  const formatted = new Intl.DateTimeFormat(locale, {
     month: "long",
     year: "numeric",
   }).format(date);

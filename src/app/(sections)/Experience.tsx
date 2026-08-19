@@ -2,13 +2,14 @@ import {ExperienceItem} from "@/components/ExperienceItem";
 import {ConcreteExperienceItem} from "@/lib/types/experienceItem";
 import {getExperieces} from "@/services/experiences.service"
 import {AnimatedCard} from "@/components/AnimatedCard";
+import {T} from "@/lib/i18n/LanguageProvider";
 
 export default async function Experience(){
     const experiences = await getExperieces()
     return (
         <section id="experience" className="py-24 ">
             <div className="container lg:max-w-[70vw] mx-auto">
-                <h2 className="text-3xl font-bold mb-12 text-center">Experiencia</h2>
+                <h2 className="text-3xl font-bold mb-12 text-center"><T k="experience.title" /></h2>
 
                 <div className="space-y-12">
                     {/* ExperienceItem */}
@@ -17,13 +18,9 @@ export default async function Experience(){
                         .map((experience: ConcreteExperienceItem, index: number)=> (
                             <AnimatedCard key={index}>
                                 <ExperienceItem
-                                    role={experience.role}
-                                    company={experience.company}
                                     startDate={experience.startDate}
                                     endDate={experience.endDate}
-                                    description={experience.description}
-                                    achievements={experience.achievements}
-                                    skills={experience.skills}
+                                    translations={experience.translations}
                                 />
                             </AnimatedCard>
                         ))

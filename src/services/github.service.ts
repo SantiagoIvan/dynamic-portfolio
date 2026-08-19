@@ -1,6 +1,7 @@
 import {parseGithubRepo} from "@/lib/mappers/github";
 import {GithubDto} from "@/lib/types/GithubDto";
 import {RepoDetail} from "@/lib/types/RepoDetail";
+import {translateEsToEn} from "@/lib/translate";
 
 const username = "SantiagoIvan"
 const FILTER_KEYWORDS = ["test", "example", "practice"];
@@ -11,7 +12,6 @@ export async function getGithubRepos(): Promise<RepoDetail[]> {
         const res = await fetch(
             `https://api.github.com/users/${username}/repos?per_page=100&page=1`,
             {
-                cache: "no-cache",
                 headers: {
                     Accept: "application/vnd.github+json",
                 },
@@ -29,13 +29,17 @@ export async function getGithubRepos(): Promise<RepoDetail[]> {
         const filteredRepos = data.filter((repo: GithubDto) =>
             !FILTER_KEYWORDS.some(keyword =>
                 repo.name.toLowerCase().includes(keyword)
-            ) && repo.description
+            )
         );
 
         // Por cada repo obtener lista de lenguajes: { "language": number of lines, ... }
+        // y la traduccion al ingles de la descripcion (para el toggle de idioma).
         return await Promise.all(filteredRepos.map(async (repo: GithubDto) => {
-            const languages = await getGithubRepoLanguages(repo.name);
-            return parseGithubRepo(repo, languages)
+            const [languages, descriptionEn] = await Promise.all([
+                getGithubRepoLanguages(repo.name),
+                translateEsToEn(repo.description),
+            ]);
+            return parseGithubRepo(repo, languages, descriptionEn)
         }))
     }catch(error){
         console.log(error);

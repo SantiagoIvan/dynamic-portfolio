@@ -1,16 +1,24 @@
+"use client";
+
 import { Card, CardContent } from "@/components/ui/card";
 import type { ConcreteExperienceItem } from "@/lib/types/experienceItem";
 import {formatMonthYear} from "@/lib/utils";
+import {T, useLanguage} from "@/lib/i18n/LanguageProvider";
+
+const DATE_LOCALE_BY_LANG = {
+    es: "es-AR",
+    en: "en-US",
+} as const;
 
 export function ExperienceItem({
-                                   role,
                                    startDate,
                                    endDate,
-                                   company,
-                                   description,
-                                   achievements,
-                                   skills,
+                                   translations,
                                }: ConcreteExperienceItem) {
+    const { locale } = useLanguage();
+    const { role, company, description, achievements, skills } = translations[locale];
+    const dateLocale = DATE_LOCALE_BY_LANG[locale];
+
     return (
         <Card className="group transition-all duration-200 hover:shadow-lg">
             <CardContent className="p-6">
@@ -25,8 +33,8 @@ export function ExperienceItem({
 
                             <p className="text-sm text-muted-foreground">
                                 {company && <span>{company} · </span>}
-                                {formatMonthYear(startDate)} –{" "}
-                                {endDate ? formatMonthYear(endDate) : "Actualidad"}
+                                {formatMonthYear(startDate, dateLocale)} –{" "}
+                                {endDate ? formatMonthYear(endDate, dateLocale) : <T k="experience.present" />}
                             </p>
                         </div>
 
@@ -52,7 +60,7 @@ export function ExperienceItem({
                     {achievements.length > 0 && (
                         <div className="space-y-3">
                             <h4 className="text-sm font-bold">
-                                Logros obtenidos
+                                <T k="experience.achievements" />
                             </h4>
 
                             <ul className="list-disc pl-5 space-y-2 text-sm text-foreground">

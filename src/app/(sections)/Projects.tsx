@@ -4,12 +4,14 @@ import { useMemo, useState } from "react";
 import { RepoDetail } from "@/lib/types/RepoDetail";
 import { LanguageFilter } from "@/components/LanguageFilter";
 import { ProjectsList } from "@/components/ProjectsList";
+import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 interface Props {
     projects: RepoDetail[];
 }
 
 export default function Projects({ projects }: Props) {
+    const { t } = useLanguage();
     const [selectedLanguage, setSelectedLanguage] = useState<string>("starred");
 
     const languages = useMemo(() => {
@@ -46,7 +48,7 @@ export default function Projects({ projects }: Props) {
             className="w-full lg:max-w-[70vw] mx-auto"
         >
             <h2 className="text-3xl font-bold text-center mb-12">
-                Proyectos
+                {t("projects.title")}
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-8">
@@ -54,9 +56,16 @@ export default function Projects({ projects }: Props) {
                     languages={languages}
                     selected={selectedLanguage}
                     onSelect={setSelectedLanguage}
+                    placeholder={t("projects.filterPlaceholder")}
+                    allLabel={t("projects.all")}
+                    starredLabel={t("projects.starred")}
                 />
 
-                <ProjectsList projects={filteredProjects} />
+                <ProjectsList
+                    projects={filteredProjects}
+                    emptyMessage={t("projects.empty")}
+                    viewOnGithubLabel={t("projects.viewOnGithub")}
+                />
             </div>
         </section>
     );

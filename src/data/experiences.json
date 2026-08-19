@@ -1,27 +1,57 @@
 [
   {
-    "role": "Desarrollador",
-    "company": "Autonomo",
     "startDate": "2026-01-01",
-    "description": "Desarrollo de juegos para activaciones de marketing, creando momentos divertidos y ayudando a conectar a las empresas con las personas.",
-    "achievements": [
-      "Desarrollo end-to-end de aplicaciones",
-      "Venta de servicio de tablets con videojuegos instalados y personalizados para la empresa"
-    ],
-    "skills": ["Frontend", "Backend", "Relevamiento", "Soft skills"]
+    "translations": {
+      "es": {
+        "role": "Desarrollador",
+        "company": "Autonomo",
+        "description": "Desarrollo de juegos para activaciones de marketing, creando momentos divertidos y ayudando a conectar a las empresas con las personas.",
+        "achievements": [
+          "Desarrollo end-to-end de aplicaciones",
+          "Venta de servicio de tablets con videojuegos instalados y personalizados para la empresa"
+        ],
+        "skills": ["Frontend", "Backend", "Relevamiento", "Soft skills"]
+      },
+      "en": {
+        "role": "Developer",
+        "company": "Freelance",
+        "description": "Development of games for marketing activations, creating fun experiences and helping companies connect with people.",
+        "achievements": [
+          "End-to-end application development",
+          "Sale of a tablet rental service with custom games installed for the company"
+        ],
+        "skills": ["Frontend", "Backend", "Requirements gathering", "Soft skills"]
+      }
+    }
   },
   {
-    "role": "Analista Funcional",
-    "company": "Tenaris",
     "startDate": "2023-11-01",
     "endDate": "2025-12-01",
-    "description": "Relevamiento de procesos y nuevos requerimientos para sistemas de portería y clasificación de chatarra para la planta industrial Siderca. Diseño de nuevas funcionalidades. Migración de sistemas de México a Argentina, mergeando con funcionalidades existentes. Soporte en aplicaciones SAP.",
-    "achievements": [
-      "Relevamiento de procesos en México y Argentina",
-      "Implementación de nuevo sistema de Portería",
-      "Implementación de sistema de clasificación de chatarra",
-      "Resolución de incidencias"
-    ],
-    "skills": ["Análisis funcional", "Modelado de datos", "Relevamiento"]
+    "translations": {
+      "es": {
+        "role": "Analista Funcional",
+        "company": "Tenaris",
+        "description": "Relevamiento de procesos y nuevos requerimientos para sistemas de portería y clasificación de chatarra para la planta industrial Siderca. Diseño de nuevas funcionalidades. Migración de sistemas de México a Argentina, mergeando con funcionalidades existentes. Soporte en aplicaciones SAP.",
+        "achievements": [
+          "Relevamiento de procesos en México y Argentina",
+          "Implementación de nuevo sistema de Portería",
+          "Implementación de sistema de clasificación de chatarra",
+          "Resolución de incidencias"
+        ],
+        "skills": ["Análisis funcional", "Modelado de datos", "Relevamiento"]
+      },
+      "en": {
+        "role": "Functional Analyst",
+        "company": "Tenaris",
+        "description": "Requirements gathering and documentation for gatehouse and scrap classification systems at the Siderca industrial plant. Design of new functionality. Migration of systems from Mexico to Argentina, merging with existing functionality. Support for SAP applications.",
+        "achievements": [
+          "Requirements gathering in Mexico and Argentina",
+          "Implementation of a new gatehouse system",
+          "Implementation of a scrap classification system",
+          "Incident resolution"
+        ],
+        "skills": ["Functional analysis", "Data modeling", "Requirements gathering"]
+      }
+    }
   }
 ]
