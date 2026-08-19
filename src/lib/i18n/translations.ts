@@ -34,15 +34,16 @@ export const translations = {
             intro: "Más allá del código: toco varios instrumentos y entreno calistenia hace años. Son disciplinas que, como programar, se construyen a base de práctica constante y de encontrarle la vuelta a algo hasta que sale bien — esa mezcla de análisis, creatividad y disciplina es la que llevo a cada proyecto.",
             dev: {
                 title: "Desarrollo",
-                text: "Full Stack developer con perfil de Analista Funcional: relevo, diseño y programo soluciones end-to-end, siempre pensando en el negocio y en la experiencia de quien las usa.",
+                text: "Relevo, diseño y programo soluciones end-to-end, siempre pensando en el negocio y en la experiencia de quien las usa.",
             },
             music: {
                 title: "Música",
-                text: "Soy multiinstrumentista (piano y guitarra, entre otros) y di clases particulares durante varios años. Tocar me enseñó a practicar con paciencia y a comunicar ideas de forma simple.",
+                text: "Soy multiinstrumentista (piano y guitarra). Tocar me enseñó a el valor de la disciplina y el trabajo constante.",
             },
             calisthenics: {
                 title: "Calistenia",
-                text: "Entreno calistenia como hábito de constancia y superación personal — la misma lógica de fijarme objetivos, medir progreso y no bajar los brazos que aplico cuando encaro un problema técnico difícil.",
+                text: "Entreno calistenia como hábito de constancia y superación personal "
+                //    "— la misma lógica de fijarme objetivos, medir progreso y no bajar los brazos que aplico cuando encaro un problema técnico difícil.",
             },
         },
         contact: {

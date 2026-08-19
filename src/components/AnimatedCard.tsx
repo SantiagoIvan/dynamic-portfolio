@@ -17,7 +17,7 @@ export function AnimatedCard({
     return (
         <motion.div
             whileHover={{
-                scale: 1.02,
+                scale: 1.05,
             }}
             transition={{
                 type: "spring",

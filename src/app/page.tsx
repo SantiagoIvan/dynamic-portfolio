@@ -9,7 +9,7 @@ import {getGithubRepos} from "@/services/github.service";
 export default async function Home() {
     const projects = await getGithubRepos()
     return (
-        <div className="p-4 md:p-8 flex flex-col justify-center items-center">
+        <div className="px-6 py-4 md:p-8 flex flex-col justify-center items-center">
             <Hero />
             <Projects projects={projects} />
             <Experience />
