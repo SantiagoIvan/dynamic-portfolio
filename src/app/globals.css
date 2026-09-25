@@ -112,6 +112,123 @@
   --sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
+/* Efectos estilo terminal / hacker */
+@keyframes caret-blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-caret-blink {
+  animation: caret-blink 1s steps(1, end) infinite;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0, 0);
+    text-shadow: none;
+  }
+  20% {
+    transform: translate(-2px, 1px);
+    text-shadow: -2px 0 rgba(244, 63, 94, 0.7), 2px 0 rgba(45, 212, 191, 0.7);
+  }
+  40% {
+    transform: translate(2px, -1px);
+    text-shadow: 2px 0 rgba(244, 63, 94, 0.7), -2px 0 rgba(45, 212, 191, 0.7);
+  }
+  60% {
+    transform: translate(-1px, 0);
+    text-shadow: -1px 0 rgba(244, 63, 94, 0.5), 1px 0 rgba(45, 212, 191, 0.5);
+  }
+  80% {
+    transform: translate(1px, 0);
+    text-shadow: 1px 0 rgba(244, 63, 94, 0.4), -1px 0 rgba(45, 212, 191, 0.4);
+  }
+  100% {
+    transform: translate(0, 0);
+    text-shadow: none;
+  }
+}
+
+.hover-glitch:hover,
+.group:hover .hover-glitch {
+  animation: glitch 280ms steps(2, end);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-caret-blink,
+  .hover-glitch:hover,
+  .group:hover .hover-glitch {
+    animation: none;
+  }
+}
+
+/* Fondo animado tipo CRT (scanlines) para el Hero */
+@keyframes scanline-flicker {
+  0%, 100% {
+    opacity: 0.85;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes scanline-sweep {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.hero-scanlines {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-scanlines::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(16, 185, 129, 0.06) 0px,
+    rgba(16, 185, 129, 0.06) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  animation: scanline-flicker 2.5s ease-in-out infinite;
+}
+
+.hero-scanlines::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(16, 185, 129, 0.12),
+    transparent
+  );
+  animation: scanline-sweep 2.5s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scanlines::before,
+  .hero-scanlines::after {
+    animation: none;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -121,5 +238,9 @@
   }
   button {
     cursor: pointer;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading), sans-serif;
+    letter-spacing: 0.02em;
   }
 }

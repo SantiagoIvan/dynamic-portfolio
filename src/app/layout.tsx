@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, VT323 } from "next/font/google";
 import "./globals.css";
 import {Header} from "@/components/layout/Header";
 import {LanguageProvider} from "@/lib/i18n/LanguageProvider";
@@ -11,6 +11,12 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const vt323 = VT323({
+  variable: "--font-heading",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -78,9 +84,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang="es" className="dark">
+      <html lang="es" className="dark scroll-smooth">
           <body
-              className={`${geistSans.variable} ${geistMono.variable} antialiased
+              className={`${geistSans.variable} ${geistMono.variable} ${vt323.variable} antialiased
               min-h-screen
               bg-linear-to-b
               from-black

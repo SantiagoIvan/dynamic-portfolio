@@ -9,7 +9,6 @@ export const translations = {
             contact: "Contacto",
         },
         hero: {
-            welcome: "Bienvenido a mi perfil !",
             role: "Full Stack Developer / Analista funcional",
             bio: "Soy desarrollador Full Stack y game developer. Mi experiencia en Analisis funcional me da un perfil orientado al negocio y a la satisfaccion del usuario. Ademas, en mis tiempos libres soy musico y amante de la calistenia!",
             contactCta: "Contacto",
@@ -62,7 +61,6 @@ export const translations = {
             contact: "Contact",
         },
         hero: {
-            welcome: "Welcome to my profile!",
             role: "Full Stack Developer / Functional Analyst",
             bio: "I'm a Full Stack developer and game developer. My background in functional analysis gives me a business- and user-focused mindset. In my free time I'm also a musician and a calisthenics enthusiast!",
             contactCta: "Contact",

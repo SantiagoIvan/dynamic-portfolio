@@ -45,9 +45,9 @@ export default function Projects({ projects }: Props) {
     return (
         <section
             id="projects"
-            className="w-full lg:max-w-[70vw] mx-auto"
+            className="w-full max-w-[1600px] mx-auto scroll-mt-16"
         >
-            <h2 className="text-3xl font-bold text-center mb-12">
+            <h2 className="text-4xl sm:text-5xl font-bold text-center mb-12">
                 {t("projects.title")}
             </h2>
 

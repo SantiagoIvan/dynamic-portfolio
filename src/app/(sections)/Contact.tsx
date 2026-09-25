@@ -11,10 +11,10 @@ export default function Contact(){
     return (
         <section
             id="contact"
-            className="w-full py-8 px-4 sm:px-6 lg:px-8"
+            className="w-full py-8 px-4 sm:px-6 lg:px-8 scroll-mt-16"
         >
-            <div className="mx-auto max-w-3xl text-center space-y-6">
-                <h2 className="text-3xl sm:text-4xl font-bold">
+            <div className="mx-auto max-w-4xl text-center space-y-6">
+                <h2 className="text-4xl sm:text-5xl font-bold">
                     {t("contact.title")}
                 </h2>
 

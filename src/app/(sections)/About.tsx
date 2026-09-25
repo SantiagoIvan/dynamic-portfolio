@@ -18,9 +18,9 @@ export default function About() {
     return (
         <section
             id="about"
-            className="w-full lg:max-w-[70vw] mx-auto py-24"
+            className="w-full max-w-[1600px] mx-auto py-24 scroll-mt-16"
         >
-            <h2 className="text-3xl font-bold text-center mb-8">
+            <h2 className="text-4xl sm:text-5xl font-bold text-center mb-8">
                 {t("about.title")}
             </h2>
 

@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
+import { TerminalWindow } from "@/components/TerminalWindow";
+import { TypingText } from "@/components/TypingText";
 
 export default function Hero() {
     const { t } = useLanguage();
@@ -10,60 +12,65 @@ export default function Hero() {
     return (
         <section
             id="home"
-            className="scroll-mt-16 min-h-[calc(80vh-4rem)] flex items-center"
+            className="relative w-full scroll-mt-16 min-h-[calc(80vh-4rem)] flex items-center overflow-hidden"
         >
-            <div className="mx-auto max-w-7xl px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center animate-in fade-in duration-700">
+            <div className="hero-scanlines" aria-hidden="true" />
+
+            <div className="relative z-10 w-full mx-auto max-w-[1600px] px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center animate-in fade-in duration-700">
 
                 {/* Texto */}
-                <div className="space-y-6 animate-in slide-in-from-bottom-6 duration-700 delay-150">
-                    <p className="text-sm text-muted-foreground">
-                        {t("hero.welcome")}
-                    </p>
+                <div className="animate-in slide-in-from-bottom-6 duration-700 delay-150">
+                    <TerminalWindow title="guest@santiago-feijoo:~">
+                        <p className="text-sm text-emerald-400">
+                            <span className="text-muted-foreground">$ </span>
+                            <TypingText text="whoami" />
+                        </p>
 
-                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                        Santiago Feijoo
-                    </h1>
+                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                            Santiago Feijoo
+                        </h1>
 
-                    <h2 className="text-xl md:text-2xl text-primary font-semibold">
-                        {t("hero.role")}
-                    </h2>
+                        <h2 className="text-xl md:text-2xl text-primary font-semibold">
+                            {t("hero.role")}
+                        </h2>
 
-                    <p className="max-w-xl text-muted-foreground">
-                        {t("hero.bio")}
-                    </p>
+                        <p className="max-w-xl text-muted-foreground">
+                            {t("hero.bio")}
+                        </p>
 
-                    <div className="flex flex-wrap gap-3">
-                        {["Java", "Next.js", "Node.js", "Typescript", "Python", "PostgreSQL"].map(
-                            (tech) => (
-                                <span
-                                    key={tech}
-                                    className="rounded-md bg-muted px-3 py-1 text-sm"
-                                >
-                                  {tech}
-                                </span>
-                            )
-                        )}
-                    </div>
+                        <div className="flex flex-wrap gap-3">
+                            {["Java", "Next.js", "Node.js", "Typescript", "Python", "PostgreSQL"].map(
+                                (tech) => (
+                                    <span
+                                        key={tech}
+                                        className="rounded-md bg-muted px-3 py-1 text-sm"
+                                    >
+                                      {tech}
+                                    </span>
+                                )
+                            )}
+                        </div>
 
-                    <div className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
-                        <Button size="lg" asChild className="border-2 transition-colors hover:bg-primary/50 ">
-                            <a href="#contact">
-                                {t("hero.contactCta")}
-                            </a>
-                        </Button>
+                        <div className="flex flex-wrap gap-4 pt-4 justify-center md:justify-start">
+                            <Button size="lg" asChild className="border-2 transition-colors hover:bg-primary/50 hover-glitch">
+                                <a href="#contact">
+                                    {t("hero.contactCta")}
+                                </a>
+                            </Button>
 
-                        <Button variant="outline" size="lg" asChild>
-                            <a href="/cv-santiago-feijoo.pdf" download>
-                                {t("hero.cvCta")}
-                            </a>
-                        </Button>
+                            <Button variant="outline" size="lg" asChild className="hover-glitch">
+                                <a href="/cv-santiago-feijoo.pdf" download>
+                                    {t("hero.cvCta")}
+                                </a>
+                            </Button>
 
-                        <Button variant="outline" size="lg" asChild>
-                            <a href="https://github.com/SantiagoIvan" target="_blank">
-                                {t("hero.projectsCta")}
-                            </a>
-                        </Button>
-                    </div>
+                            <Button variant="outline" size="lg" asChild className="hover-glitch">
+                                <a href="https://github.com/SantiagoIvan" target="_blank">
+                                    {t("hero.projectsCta")}
+                                </a>
+                            </Button>
+                        </div>
+                    </TerminalWindow>
                 </div>
 
                 {/* Visual */}

@@ -57,7 +57,9 @@ export function Header() {
                                 "
                             >
                                 <Icon className="h-4 w-4 text-primary/70 transition-colors group-hover:text-primary" />
-                                <T k={item.key} />
+                                <span className="hover-glitch">
+                                    <T k={item.key} />
+                                </span>
                             </Link>
                         );
                     })}
